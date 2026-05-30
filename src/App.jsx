@@ -53,7 +53,7 @@ function App() {
 
   return (
     <TodoProvider value={{todos,addTodo,deleteTodo,updatedTodo,toggleComplete}}>
-      <div className='relative text-white flex items-center flex-col pt-8'>
+      <div className='relative text-white flex flex-col items-center md:justify-start justify-center pt-8 pb-6 min-h-screen'>
         <img src={background} className='fixed inset-0 w-full h-full object-cover pointer-events-none'/>
         <GlassCard>
           <div className='flex flex-col w-full gap-1 min-h-fit items-center justify-center'>

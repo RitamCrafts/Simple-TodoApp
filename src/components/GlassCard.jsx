@@ -1,6 +1,6 @@
 function GlassCard({ children }) {
   return (
-    <div className="relative md:w-fit max-w-4xl w-full px-4">
+    <div className="relative md:w-fit max-w-4xl w-full px-4 md:py-6">
 
       {/* glowing border */}
       <div

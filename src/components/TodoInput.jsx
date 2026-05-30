@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 import { useTodo } from '../context';
 
 
@@ -7,6 +7,8 @@ function TodoInput() {
   const {addTodo}=useTodo();
   const [inputBox,setInputBox]=useState("");
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const todoInputBoxRef=useRef(null);
+
   return (
     <div
       className="
@@ -22,6 +24,7 @@ function TodoInput() {
       "
     >
       <input
+        ref={todoInputBoxRef}
         type="text"
         placeholder={isMobile?"Add todo...":"What do you want to do?"}
         value={inputBox}
@@ -68,7 +71,7 @@ function TodoInput() {
         "
         onClick={() => {
           const text = inputBox.trim();
-
+          todoInputBoxRef.current?.focus();
           if (!text) return;
 
           addTodo(text);
