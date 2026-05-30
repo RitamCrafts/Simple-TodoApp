@@ -6,6 +6,7 @@ import { useTodo } from '../context';
 function TodoInput() {
   const {addTodo}=useTodo();
   const [inputBox,setInputBox]=useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   return (
     <div
       className="
@@ -22,7 +23,7 @@ function TodoInput() {
     >
       <input
         type="text"
-        placeholder="What do you want to do?"
+        placeholder={isMobile?"Add todo...":"What do you want to do?"}
         value={inputBox}
         onChange={(e)=>{setInputBox(e.target.value);}}
         onKeyDown={(e)=>{
