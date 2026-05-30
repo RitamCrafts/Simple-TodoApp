@@ -25,6 +25,16 @@ function TodoInput() {
         placeholder="What do you want to do?"
         value={inputBox}
         onChange={(e)=>{setInputBox(e.target.value);}}
+        onKeyDown={(e)=>{
+          if(e.key==="Enter"){
+            const text = inputBox.trim();
+
+            if (!text) return;
+
+            addTodo(text);
+            setInputBox("");
+          }
+        }}
         className="
           flex-1
           bg-transparent
